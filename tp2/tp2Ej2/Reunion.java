@@ -16,8 +16,13 @@ public class Reunion {
         this.lugar=lugar;
         this.integrantes=integrantes;
         this.temario=temario;
+        if (diaI.isAfter(diaF)){
         this.diaInicio=diaI;
-        this.diaFin=diaF;
+        this.diaFin=diaI;
+        }else{
+            this.diaInicio=diaI;
+            this.diaFin=diaF;
+        }
         this.horaInicio=horaInicio;
         this.horaFin=horaFin; 
     }
@@ -36,17 +41,26 @@ public class Reunion {
     public Reunion ( Contacto[] integrantes, LocalDate diaI){
         this("Oficina", integrantes,"Reunion importante", diaI, diaI, LocalTime.of(8,0,0,0), LocalTime.of(8,30,0,0));
     }
-    public String reunionToString(){
-        String[] nomIntegrantes = new String[integrantes.length];
+    public String toString(){
+        String nomIntegrantes="";
         for(int i=0;i<integrantes.length;i++){
-            nomIntegrantes[i]=integrantes[i].getNombre();
+            nomIntegrantes= nomIntegrantes +", "+integrantes[i].getNombre();
         }
-        return "Lugar a realizar: "+lugar+", Integrantes: "+nomIntegrantes+
-        ", Temas: "+temario+
-        ", Dia de inicio: "+diaInicio+", Hora de inicio: "+horaInicio+", Dia finalizacion: "+
-        diaFin+", Hora finalizacion: "+horaFin; 
+        if (diaInicio.equals(diaFin)){
+            return "Lugar a realizar: "+lugar+"; Integrantes: "+nomIntegrantes+
+            "; Temas: "+temario+
+            "; Dia reunion: "+diaInicio+", hora de inicio: "+horaInicio+
+            ", hora finalizacion: "+horaFin; 
+        }
+        else {
+            return "Lugar a realizar: "+lugar+"; Integrantes: "+nomIntegrantes+
+            "; Temas: "+temario+
+            "; Dia de inicio: "+diaInicio+", hora de inicio: "+horaInicio+"; Dia finalizacion: "+
+            diaFin+", hora finalizacion: "+horaFin; 
+        }
     }
-    public void sePisanReuniones(){ //como calculo?
+    public void sePisanReuniones(){ //como calculo? como recorro las demas?
+        
         //todavia en proceso...
 
     }

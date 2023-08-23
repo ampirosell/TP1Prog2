@@ -7,14 +7,10 @@ public class Contacto {
     private String mail;
 
     public Contacto(String nNombre, String nApellido, int nCelular, String nMail){
-        nombre=nNombre;
-        apellido=nApellido;
-        celular=nCelular;
-        mail=nMail;
-       /*nombre.setNombre(nNombre);
-        apellido.setApellido(nApellido);
-        this.celular.setCelular(nCelular);
-        mail.setMail(nMail);*/
+        this.setNombre(nNombre);
+        this.setApellido(nApellido);
+        this.setCelular(nCelular);
+        this.setMail(nMail);
     }
     public Contacto(String nNombre, String nApellido, int nCelular){
         this(nNombre,nApellido,nCelular,"example@example.com");
