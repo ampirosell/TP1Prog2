@@ -43,24 +43,7 @@ public class Reunion {
     public Reunion ( Contacto[] integrantes, LocalDate diaI){
         this("Oficina", integrantes,"Reunion importante", diaI, diaI, LocalTime.of(8,0,0,0), LocalTime.of(8,30,0,0));
     }
-    public String toString(){
-        String nomIntegrantes="";
-        for(int i=0;i<integrantes.length;i++){
-            nomIntegrantes= nomIntegrantes +", "+integrantes[i].getNombre();
-        }
-        if (diaInicio.equals(diaFin)){
-            return "Lugar a realizar: "+lugar+"; Integrantes: "+nomIntegrantes+
-            "; Temas: "+temario+
-            "; Dia reunion: "+diaInicio+", hora de inicio: "+horaInicio+
-            ", hora finalizacion: "+horaFin; 
-        }
-        else {
-            return "Lugar a realizar: "+lugar+"; Integrantes: "+nomIntegrantes+
-            "; Temas: "+temario+
-            "; Dia de inicio: "+diaInicio+", hora de inicio: "+horaInicio+"; Dia finalizacion: "+
-            diaFin+", hora finalizacion: "+horaFin; 
-        }
-    }
+
     public boolean sePisanReuniones(Reunion rOtra){ //como calculo? como recorro las demas?
         boolean mismoDia=this.diaInicio.equals(rOtra.diaInicio);
         if (mismoDia){

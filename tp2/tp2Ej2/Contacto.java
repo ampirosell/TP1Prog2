@@ -30,10 +30,7 @@ public class Contacto {
     public Contacto(){
         this("nNombre"," ",001,"example@example.com");
     }
-    public String toString(){
-        return "Nombre completo: "+nombre+apellido+
-        ", celular: "+celular+", mail: "+mail;
-    }
+    
     public String getNombre() {
         return nombre+" "+apellido;
     }
