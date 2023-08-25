@@ -1,4 +1,4 @@
-package TP1Prog2.tp2.tp2Ej1;
+package TP1Prog2.tp2.tp2Ej2;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -22,6 +22,8 @@ public class Agenda{
         integrantes[1]=asistente2;
         Reunion reunion = new Reunion("Oficina av2", integrantes, "muchos muchos temas...", LocalDate.now(), LocalDate.now(), LocalTime.of(11,0,0), LocalTime.of(13,0,0));
         System.out.println(reunion.toString());
+        Reunion reunion2= new Reunion("Necochea", integrantes, "kjdfehjrbfebow", LocalDate.of(2023,8,25),LocalDate.of(2023,8,25),LocalTime.of(12,0,0),LocalTime.of(13,30,0));
+        System.out.println(reunion.sePisanReuniones(reunion2));
     }
 
 }

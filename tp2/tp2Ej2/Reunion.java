@@ -1,5 +1,6 @@
-package TP1Prog2.tp2.tp2Ej1;
+package TP1Prog2.tp2.tp2Ej2;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -13,6 +14,7 @@ public class Reunion {
     private LocalTime horaFin;
 
     public Reunion (String lugar, Contacto[] integrantes, String temario, LocalDate diaI, LocalDate diaF, LocalTime horaInicio, LocalTime horaFin){
+        //controlo aca si se pisan?
         this.lugar=lugar;
         this.integrantes=integrantes;
         this.temario=temario;
@@ -59,9 +61,26 @@ public class Reunion {
             diaFin+", hora finalizacion: "+horaFin; 
         }
     }
-    public void sePisanReuniones(){ //como calculo? como recorro las demas?
-        
-        //todavia en proceso...
+    public boolean sePisanReuniones(Reunion rOtra){ //como calculo? como recorro las demas?
+        boolean mismoDia=this.diaInicio.equals(rOtra.diaInicio);
+        if (mismoDia){
+            if(horaInicio.isAfter(rOtra.horaInicio)){
+                if(horaInicio.isAfter(rOtra.horaFin)){
+                    return false;
+                } else{
+                    return true;
+                }
+            } else if(horaFin. isAfter(rOtra.horaInicio)){
+                return true;
+            } else if(horaFin.isBefore(rOtra.horaInicio)){
+                return false;
+            }else {
+                return true;
+            }
+        }else{
+            return false;
+        }
+        //todavia en proceso... creo
 
     }
 
@@ -73,13 +92,13 @@ public class Reunion {
         this.lugar = lugar;
     }
 
-    /*public Contacto[] getIntegrantes() {
+    public Contacto[] getIntegrantes() {
         return integrantes;
     }
 
     public void setIntegrantes(Contacto[] integrantes) {
         this.integrantes = integrantes;
-    }*/
+    }
 
     public String getTemario() {
         return temario;
@@ -119,6 +138,13 @@ public class Reunion {
 
     public void setHoraFin(LocalTime fin) {
         this.horaFin = fin;
+    }
+
+    public String getDuracion(){
+        Duration duracionIntervalo = Duration.between(horaInicio,horaFin);
+        long horas = duracionIntervalo.toHours();
+        long minutos = duracionIntervalo.toMinutesPart();    
+        return("Duración de la reunion: " + horas + " horas y " + minutos + " minutos.");
     }
     
 

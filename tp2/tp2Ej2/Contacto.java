@@ -1,4 +1,4 @@
-package TP1Prog2.tp2.tp2Ej1;
+package TP1Prog2.tp2.tp2Ej2;
 
 public class Contacto {
     private String nombre;
